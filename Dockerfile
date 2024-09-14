@@ -1,0 +1,23 @@
+FROM ubuntu:24.04
+
+
+FROM python:3.12
+# Label
+LABEL maintaner = "maxime.renard@protonmail.com"
+LABEL version="1.0"
+LABEL readme="Projet Backend  Frontend"
+
+RUN mkdir /home/docker
+#COPY projet django-admin
+WORKDIR /home/docker
+
+# COPY file   
+COPY requirements.txt /home/docker
+COPY web/ /home/docker
+
+# Install app
+RUN pip3 install -r requirements.txt
+
+# Launch
+ENTRYPOINT["python3"]
+CMD ["web/manage.py","runserver","0.0.0.0:8080"]
