@@ -20,7 +20,7 @@ services:
             - ./:/home/docker
     web:
         tty: true
-        build: .    
+        build: . 
         
         ports:
             - "8000:8000"

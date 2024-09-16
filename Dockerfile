@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:22.04
 
 
 FROM python:3.12
@@ -18,6 +18,9 @@ COPY web/ /home/docker
 # Install app
 RUN pip3 install -r requirements.txt
 
+# Install postman for test
+RUN snap install postman
+
 # Launch
-ENTRYPOINT["python3"]
-CMD ["web/manage.py","runserver","0.0.0.0:8080"]
+#ENTRYPOINT["python3"]
+#CMD ["web/manage.py","runserver","0.0.0.0:8000"]
