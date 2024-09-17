@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+86-#%x%+z)x$)a-!i^pcwc%0emr!vm-g%0vprnxh9pd)9z&uf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost","0.0.0.0"]
+ALLOWED_HOSTS = ["localhost","0.0.0.0","127.0.0.1"]
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ecommerce',
+    'ecommerce.apps.EcommerceConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -88,16 +89,6 @@ DATABASES = {
         'PORT': 5432,
     }
 }
-#DATABASES = {
-#    'psql': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': os.environ.get('POSTGRES_NAME'),
-#        'USER': os.environ.get('POSTGRES_USER'),
-#        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#        'HOST': 'db',
-#        'PORT': 5432,
-#    }
-#}   
 
 
 # Password validation

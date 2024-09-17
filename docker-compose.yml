@@ -1,8 +1,12 @@
 version: "2.29.1"
 services:
-    db:
+
+    web_db:
         image: postgres:16.4
+        container_name: web_db
         hostname: postgres
+        #ports:
+        #    - "5432:5432"
 
         restart: always
         environment:
@@ -18,17 +22,18 @@ services:
             retries: 10
         volumes:
             - ./:/home/docker
-    web:
+
+
+    web_app:
         tty: true
-        build: . 
-        
-        ports:
+        container_name: web_app
+        image: maximerenard/django:5.1
+        ports: 
             - "8000:8000"
         depends_on:
-            - db
+            - web_db
         volumes:
             - ./:/home/docker/
-    
+        
         command: bash -c "python3 web/manage.py migrate && python3 web/manage.py runserver 0.0.0.0:8000"
-
 

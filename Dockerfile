@@ -17,10 +17,7 @@ COPY web/ /home/docker
 
 # Install app
 RUN pip3 install -r requirements.txt
+RUN python3 -m pip install --upgrade Pillow==10.4.0 --break-system-packages
 
-# Install postman for test
-RUN snap install postman
 
-# Launch
-#ENTRYPOINT["python3"]
-#CMD ["web/manage.py","runserver","0.0.0.0:8000"]
+

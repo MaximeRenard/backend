@@ -2,3 +2,4 @@ Django==5.1.1
 psycopg2==2.9.9
 requests
 django-environ
+

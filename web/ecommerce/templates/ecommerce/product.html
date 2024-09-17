@@ -2,18 +2,18 @@
 {% block content %}
 <html>
     <head><title>products</title></head>
-    <link rel="stylesheet" href="{static 'ecommerce/styles.css' %}"/>
     <body>
         <h1>Products</h1> <p>Dear customer, here is list of products !</p>
-    <p>Liste des produits :</p>
-        <ul>
-        {% for product in products %}
-        <li>
-        {{ products.name }}
-        </li>
-        {% endfor %}
-    </ul>
-    
-</body>
+
+                <p>Liste des produits :</p>
+             <ul>
+                {% for product in products %}
+                <li>
+                    {{ product.id }}
+                    {{ product.name }}
+                </li>
+                {% endfor %}
+            </ul>
+    </body>
 </html>
 {% endblock %}
