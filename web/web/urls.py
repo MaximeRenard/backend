@@ -1,3 +1,7 @@
+from django.contrib import admin
+from django.urls import include,path
+# Import des vues de django
+from ecommerce import views
 """
 URL configuration for web project.
 
@@ -14,17 +18,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-# Import des vues de django
-from ecommerce import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home_page),
-    path('contact/', views.contact_page),
+    #path('api/', include('ecommerce.urls')),
+    path('home/', views.home_page,name="home_page"),
+    path('contact/', views.contact_page,name="contact"),
     path('products/', views.listing_products,name='get_all_products'),
-    #path('products/<int:product_id>/'.views.products_id,name='get_product_id')
-    # path('products/update/<int:product_id>/'.views.update_product,name='update_product_id')
-    #path('products/delete//<int:product_id>/'.views.delete_product,name='delete_product_id')
-    # path('products/create/'.views.create_product)
+    #path('products/<int:product_id>/',views.products_id,name='get_product_id'),
+    #path('products/update/<int:product_id>/',views.update_product,name='update_product_id'),
+    #path('products/delete//<int:product_id>/',views.delete_product,name='delete_product_id'),
+    path('products/patch/',views.create_product,name='create_product'),
 ]
