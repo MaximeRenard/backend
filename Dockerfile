@@ -5,8 +5,7 @@ FROM python:3.12
 # Label
 LABEL maintaner = "maxime.renard@protonmail.com"
 LABEL version="1.0"
-LABEL readme="Projet Backend  Frontend"
-
+LABEL readme="Projet Backend Python/Django"
 RUN mkdir /home/docker
 #COPY projet django-admin
 WORKDIR /home/docker

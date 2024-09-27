@@ -2,10 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
 # Import Model Data base
-from ecommerce.models import Product
+from .models import Product
+from django.views.decorators.csrf import csrf_exempt
 import json
 
-# Page Accueil to test postman
+# ***************************************
+# Accueil
+
+# Page Accueil 
 def home_page(request):
 	"""
 	 METHOD GET PAGE
@@ -22,99 +26,18 @@ def contact_page(request):
 	# Ajouter formulaire 
 	return render(request,'ecommerce/contact.html')
 
-
-# Objectif 1 Backend Retrieve all of Products
-def listing_products(request):
-	"""
-		Create Page listing des produits
-		Return List of products 
-	"""
-	products = Product.objects.all()
-	# <ul>
-    #            {% for product in products %}
-    #            <li>
-    #                {{ product.id }}
-    #                {{ product.name }}
-    #            </li>
-    #            {% endfor %}
-    #        </ul>
-	# Ajouter Produits et lecture des produits sous un format liste
-	return render(request,'ecommerce/product.html')
-	
-"""
-def get_all_restaurants(request):
-    query_set = Restaurant.objects.all()
-    data = serializers.serialize("json", query_set)
-    return HttpResponse(data)
-# Retrieve one products id
-#def get_product_id(request):
-def get_restaurant_by_id(request, restaurant_id):
-    try:
-        query_set = Restaurant.objects.filter(pk=restaurant_id)
-    except Restaurant.DoesNotExist:
-        raise Http404("Restaurant does not exist")
-        data = serializers.serialize("json", query_set)
-    return HttpResponse(data)
-# Function update product Quantite -1
-#def update_product_id(request):
-def update_restaurant_by_id(request, restaurant_id):
-    if request.method == 'PUT':
-        body = json.loads(request.body.decode('utf-8'))
-        new_name = body.get("name")
-        new_address = body.get("address")
-        new_latitude = body.get("latitude")
-        new_longitude = body.get("longitude")        try:
-            tag = Tag.objects.get(pk=body.get("tag_id"))
-        except Tag.DoesNotExist:
-            raise Http404("Tag does not exist")        try:
-            restaurant = Restaurant.objects.get(pk=restaurant_id)
-        except Restaurant.DoesNotExist:
-            raise Http404("Restaurant does not exist")        restaurant.name = new_name
-        restaurant.address = new_address
-        restaurant.latitude = new_latitude
-        restaurant.longitude = new_longitude
-        restaurant.save()        tag.restaurants.add(restaurant)
-        tag.save()        return HttpResponse(status=200)    else:
-        raise HttpResponseNotAllowed("Method is not supported")
-# Function delete products
-#def delete_product_id(request):
-def delete_restaurant_by_id(request, restaurant_id):
-    if request.method == 'DELETE':
-        try:
-            restaurant = Restaurant.objects.get(pk=restaurant_id)
-        except Restaurant.DoesNotExist:
-            raise Http404("Restaurant does not exist")
-        
-        restaurant.delete()
-        return HttpResponse(status=200)
-    else:
-        raise HttpResponseNotAllowed("Method is not supported")
-
-
-"""
-
+# ***********************************
+# Ressource **/products** 
 # Function Create products
-"""
-def create_a_new_restaurant(request):
-    if request.method == 'POST':
-        body = json.loads(request.body.decode('utf-8'))
-        new_name = body.get("name")
-        new_address = body.get("address")
-        new_latitude = body.get("latitude")
-        new_longitude = body.get("longitude")
-        try:
-             tag = Tag.objects.get(pk=body.get("tag_id"))
-        except Tag.DoesNotExist:
-             raise Http404("Tag does not exist")
-        new_restaurant = Restaurant(name=new_name,        address=new_address, latitude=new_latitude, longitude=new_longitude)
-        new_restaurant.save()
-        tag.restaurants.add(new_restaurant)
-        tag.save()
-        return HttpResponse(status=200)
-     else:
-        raise HttpResponseNotAllowed("Method is not supported")
-"""
-def create_product(request):
+
+# ***************
+def create_a_new_product(request):
+	"""
+
+		IN : Body json
+		OUT: Save product in database
+
+	"""
 	if request.method == 'POST':
 		body = json.loads(request.body.decode('utf-8'))
 		new_id = body.get("id")
@@ -129,14 +52,126 @@ def create_product(request):
 		new_inventoryStatus = body.get("inventoryStatus")
 		new_rating = body.get("rating")
 		new_price = body.get("price")
-		try:
-			tag = Tag.objects.get(pk=body.get("tag_id"))
-		except Tag.DoesNotExist:
-			raise Http404("Tag does not exist")
-		new_product = Product(id=new_id,code = new_code,name = new_name, description = new_description,new =new_image, category = new_category,price = new_price,quantity = new_quantity,internalReference = new_internalReference,shellId = newshellId,inventoryStatus = new_inventoryStatus,rating = new_rating)
+		new_createdat = body.get("createdat")
+		new_updateat = body.get("updatedat")
+		new_product = Product(id=new_id,code = new_code,name = new_name, description = new_description,
+				image =new_image, category = new_category,quantity = new_quantity,internalReference = new_internalReference,
+				shellId = newshellId,inventoryStatus = new_inventoryStatus,
+				rating = new_rating,price = new_price,createdat = new_createdat,
+				updatedat = new_updateat)
 		new_product.save()
-		tag.new_product.add(new_product)
-		tag.save()
+		
+		return HttpResponse(status=200)
+	else:
+		raise HttpResponseNotAllowed("Method is not supported")
+
+# ***************
+# Retrieve all products
+def get_all_product(request):
+	"""
+
+		IN : Request in postman
+		OUT: Display product of ecommerce
+		
+	"""
+	if request.method == 'GET':
+		query_set = Product.objects.all()
+		data = serializers.serialize("json", query_set)
+		return HttpResponse(data)
+	else:
+		raise HttpResponseNotAllowed("Method is not supported")
+
+
+
+# ***********************************
+# RESSOURCE **/products/:id**
+
+# ***************
+# Retrieve one products id
+#def get_product_id(request):
+def get_product_by_id(request, product_id):
+	"""
+
+		IN : Request in postman and Recover id of product
+		OUT: Display product/id of ecommerce
+		
+	"""
+	if request.method == 'GET':
+		try:
+			query_set = Product.objects.filter(pk=product_id)
+		except Product.DoesNotExist:
+			raise Http404("Product request does not exist")
+		data = serializers.serialize("json", query_set)
+		return HttpResponse(data)
+	else:
+		raise HttpResponseNotAllowed("Method is not supported")
+
+# ***************
+# Function update product Quantity -1 or sold
+def update_product_by_id(request, product_id):
+	"""
+
+		IN : Body json with chage of product
+		OUT: Update product on database
+		
+	"""
+	if request.method == 'PATCH':
+		body = json.loads(request.body.decode('utf-8'))
+		new_id = body.get("id")
+		new_code = body.get("code")
+		new_name = body.get("name")
+		new_description = body.get("description")
+		new_image = body.get("image")
+		new_category = body.get("category")
+		new_quantity = body.get("quantity")
+		new_internalReference = body.get("internalReference")
+		new_shellId = body.get("shellId")
+		new_inventoryStatus = body.get("inventoryStatus")
+		new_rating = body.get("rating")
+		new_price = body.get("price")
+		# Update no change createat
+		# new_createdat = body.get("createdat")
+		new_updateat = body.get("updatedat")    
+		try:
+			product = Product.objects.get(pk=product_id)
+		except Product.DoesNotExist:
+  			raise Http404("product does not exist") 
+
+        # No change of id       
+		product.code = new_code
+		product.name = new_name
+		product.description = new_description
+		product.image = new_image
+		product.category = new_category
+		product.quantity = new_quantity
+		product.internalReference = new_internalReference
+		product.shellId = new_shellId
+		product.inventoryStatus = new_inventoryStatus
+		product.rating  = new_rating
+		product.price = new_price
+		# No change of createat
+		product.updatedat = new_updateat
+		product.save()             
+		return HttpResponse(status=200)    
+	else:
+		raise HttpResponseNotAllowed("Method is not supported")
+
+# ***************
+# Function delete product
+def delete_product_by_id(request, product_id):
+	"""
+
+		IN : Request in postman and Recover id of product
+		OUT: Delete product/id of ecommerce
+		
+	"""
+	if request.method == 'DELETE':
+		try:
+			product = Product.objects.get(pk=product_id)
+		except Product.DoesNotExist:
+			raise Http404("product does not exist")
+        
+		product.delete()
 		return HttpResponse(status=200)
 	else:
 		raise HttpResponseNotAllowed("Method is not supported")

@@ -21,12 +21,7 @@ Including another URLconf
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('api/', include('ecommerce.urls')),
+    path('api/', include('ecommerce.urls'),name="Application ecommerce"),
     path('home/', views.home_page,name="home_page"),
     path('contact/', views.contact_page,name="contact"),
-    path('products/', views.listing_products,name='get_all_products'),
-    #path('products/<int:product_id>/',views.products_id,name='get_product_id'),
-    #path('products/update/<int:product_id>/',views.update_product,name='update_product_id'),
-    #path('products/delete//<int:product_id>/',views.delete_product,name='delete_product_id'),
-    path('products/patch/',views.create_product,name='create_product'),
 ]

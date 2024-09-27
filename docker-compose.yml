@@ -6,7 +6,9 @@ services:
         container_name: web_db
         hostname: postgres
         #ports:
-        #    - "5432"
+        #- '5432:5432'
+        #volumes:
+        #- pg_data:/var/lib/postgresql/data
 
         restart: always
         environment:
@@ -34,6 +36,8 @@ services:
             - web_db
         volumes:
             - ./:/home/docker/
-        #
-        command: bash -c "python3 web/manage.py makemigrations && python3 web/manage.py migrate && python3 web/manage.py runserver 0.0.0.0:8000"
+        network_mode: "host"        
+        restart: on-failure 
+
+        command: bash -c "python3 web/manage.py makemigrations && python3 web/manage.py migrate && python3 web/manage.py runserver 127.0.0.1:8000"
 
