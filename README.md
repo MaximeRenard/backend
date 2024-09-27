@@ -1,7 +1,7 @@
 # Project for ALTEN test
-## Projet Back End with Pythhon with Django framework
+## Projet Back End with Pythhon and Django framework
 ## Author : Maxime Renard
-
+## Date : 24/09/24 - > 01/10/24
 
 ### Utilisation de docker
 version
@@ -13,7 +13,7 @@ version 5.1.1
 PSQL: postgresql
 
 ### Launch code 
-#### 14/09/2024 : Creation of docker
+#### Creation of docker
 sudo docker exec -it web_app bash
 #root@a604c36ce2b7:/home/docker# ls
 #Dockerfile  README.md  docker-compose.yml  requirements.txt  web
@@ -21,22 +21,19 @@ sudo docker exec -it web_db bash
 root@postgres:/# psql -U postgres
 psql (16.4 (Debian 16.4-1.pgdg120+1))
 Type "help" for help.
-### Architecture
-#### Commande creation django project
-##### Create project
+### Tutorial 
+#### Create project
 django-admin startproject web
-Dans docker-compose commande
+python3 manage.py startapp ecommerce
 python3 manage.py migrate
 python3 manage.py runserver 127.0.0.1:8000
 Base de données sqllite3 
-##### Crete application
-python3 manage.py startapp ecommerce
 #### Inserer modele db
 ##### ecommerce/models.py
 python3 manage.py makemigrations
 python3 manage.py migrate
 python manage.py showmigrations
-### Launch program
+### Load
 git clone https://github.com/MaximeRenard/backend
 git clone git@github.com:MaximeRenard/backend.git
 ### Version docker
@@ -47,4 +44,4 @@ sudo docker compose up -d web_app
 sudo docker ps
 Launch postman
 
-# Date : 24/09/24 - > 01/10/24
+

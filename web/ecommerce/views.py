@@ -7,21 +7,22 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 # ***************************************
-# Accueil
+# Welcome page
 
-# Page Accueil 
+# Welcome Page  
 def home_page(request):
 	"""
-	 METHOD GET PAGE
+	  Home page
+	  Methode GET
 	"""
 	return render(request,'ecommerce/home.html')
 
 
-# Page Frontend to test with Postman 
+# Page Frontend Contact 
 def contact_page(request):
 	"""
-	Create page contact avec formulaire
-	Return validation envoi
+	Create page contact
+	Methode GET 
 	"""
 	# Ajouter formulaire 
 	return render(request,'ecommerce/contact.html')
@@ -31,11 +32,12 @@ def contact_page(request):
 # Function Create products
 
 # ***************
+# Requst POST
 def create_a_new_product(request):
 	"""
 
 		IN : Body json
-		OUT: Save product in database
+		OUT: Save new product in database
 
 	"""
 	if request.method == 'POST':
@@ -59,6 +61,7 @@ def create_a_new_product(request):
 				shellId = newshellId,inventoryStatus = new_inventoryStatus,
 				rating = new_rating,price = new_price,createdat = new_createdat,
 				updatedat = new_updateat)
+		# save new product in database
 		new_product.save()
 		
 		return HttpResponse(status=200)
@@ -66,7 +69,7 @@ def create_a_new_product(request):
 		raise HttpResponseNotAllowed("Method is not supported")
 
 # ***************
-# Retrieve all products
+# Retrieve all products : GET Method
 def get_all_product(request):
 	"""
 
@@ -87,7 +90,7 @@ def get_all_product(request):
 # RESSOURCE **/products/:id**
 
 # ***************
-# Retrieve one products id
+# Retrieve one products id : GET Method
 #def get_product_id(request):
 def get_product_by_id(request, product_id):
 	"""
@@ -106,8 +109,9 @@ def get_product_by_id(request, product_id):
 	else:
 		raise HttpResponseNotAllowed("Method is not supported")
 
+
 # ***************
-# Function update product Quantity -1 or sold
+# Function update product Quantity or stock after purchase or sold
 def update_product_by_id(request, product_id):
 	"""
 
@@ -156,8 +160,9 @@ def update_product_by_id(request, product_id):
 	else:
 		raise HttpResponseNotAllowed("Method is not supported")
 
+
 # ***************
-# Function delete product
+# Function delete product : DELETE Method
 def delete_product_by_id(request, product_id):
 	"""
 

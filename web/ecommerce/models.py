@@ -17,6 +17,7 @@ DEFAULT_VALUE = 20240926
 # Create Class Product :
 class Product(models.Model):
 	"""
+		Specification :
 		id: number; Primary key
 		code: string;
 		name: string;
@@ -32,11 +33,12 @@ class Product(models.Model):
 		createdAt: Number;
 		updatedAt: number;
 	"""
+
 	id = models.fields.IntegerField(primary_key=True)
 	code = models.fields.CharField(max_length=10)
 	name = models.fields.CharField(max_length=50)
 	description = models.fields.CharField(max_length=200)
-	
+	# default logo of Alten
 	image = models.ImageField(upload_to='pictures/',default='pictures/icon-152x152.png',blank=True)
 	
 	class Category(models.TextChoices):
@@ -50,12 +52,12 @@ class Product(models.Model):
 	
 	def validate_interval_price(value):
 		if value < MIN_FLOAT or value > MAX_PRICE:
-			raise ValidationError(_('%(value)s must be in the range [%(Min),%(Max)]'), params={'value': value,'Min' :MIN_FLOAT,'Max' :MAX_PRICE},)          
+			raise ValidationError(_('Price : %(value)s must be in the range [%(Min),%(Max)]'), params={'value': value,'Min' :MIN_FLOAT,'Max' :MAX_PRICE},)          
 	price = models.fields.FloatField(validators=[validate_interval_price])
 	
 	def validate_interval_quantity(value):
 		if value < MIN_QUANTITY or value > MAX_QUANTITY:
-			raise ValidationError(_('%(value)s must be in the range [%(Min),%(Max)]'), params={'value': value,'Min' :MIN_FLOAT,'Max' :MAX_QUANTITY},)       
+			raise ValidationError(_('Quantity : %(value)s must be in the range [%(Min),%(Max)]'), params={'value': value,'Min' :MIN_FLOAT,'Max' :MAX_QUANTITY},)       
 	quantity = models.fields.IntegerField(validators=[validate_interval_quantity])
 	
 	internalReference = models.fields.CharField(max_length=13) 
@@ -69,10 +71,10 @@ class Product(models.Model):
 	
 	def validate_interval(value):
 		if value < MIN_INT or value > MAX_RATE:
-			raise ValidationError(_('%(value)s must be in the range [%(Min),%(Max)]'), params={'value': value,'Min' :MIN_FLOAT,'Max' :MAX_RATE},)
+			raise ValidationError(_('Note : %(value)s must be in the range [%(Min),%(Max)]'), params={'value': value,'Min' :MIN_FLOAT,'Max' :MAX_RATE},)
 	rating = models.fields.IntegerField(validators=[validate_interval])
 	
-	# Date sous format integer
+	# Date of create product under number kind
 	createdat =  models.fields.IntegerField(default = DEFAULT_VALUE)
 	# Date of update products
 	updatedat = models.fields.IntegerField(default = DEFAULT_VALUE)

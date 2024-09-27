@@ -1,13 +1,13 @@
 FROM ubuntu:22.04
-
-
 FROM python:3.12
-# Label
+
+# LABEL
 LABEL maintaner = "maxime.renard@protonmail.com"
 LABEL version="1.0"
 LABEL readme="Projet Backend Python/Django"
+
+# Repertory
 RUN mkdir /home/docker
-#COPY projet django-admin
 WORKDIR /home/docker
 
 # COPY file   
