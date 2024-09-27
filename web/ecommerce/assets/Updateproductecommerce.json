@@ -1,6 +1,6 @@
 [
 	{
-		"id": 1,
+		"id": 2,
 		"code": "f230fh0g3",
 		"name": "Bamboo Watch",
 		"description": "Product Description",
@@ -10,7 +10,7 @@
 		"category": "Accessories",
 		"shellId": 15,
 		"internalReference": "REF-567-456",
-		"inventoryStatus": "INSTOCK",
+		"inventoryStatus": "LOWSTOCK",
 		"rating": 5,
 		"createdat" : 20240926,
 		"updatedat" : 20240926
@@ -22,12 +22,13 @@
 		"description": "Product Description",
 		"image": "black-watch.jpg",
 		"price": 72,
+		"quantity":0,
 		"category": "Accessories",
 		"createdAt": 1718114215761,
 		"updatedAt": 1718114215761,
 		"shellId": 15,
 		"internalReference": "REF-123-678",
-		"inventoryStatus": "INSTOCK",
+		"inventoryStatus": "OUTOFSTOCK",
 		"rating": 4
 	}
 ]

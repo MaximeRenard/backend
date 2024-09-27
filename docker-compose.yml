@@ -7,13 +7,12 @@ services:
         hostname: postgres
         #ports:
         #- '5432:5432'
-        #volumes:
-        #- pg_data:/var/lib/postgresql/data
+        
 
         restart: always
         environment:
-            - POSTGRES_DB=postgres
-            - POSTGRES_USER=postgres
+            - POSTGRES_DB=base_commerce
+            - POSTGRES_USER=user_commerce
             - POSTGRES_PASSWORD=Project
             
 

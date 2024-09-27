@@ -8,7 +8,7 @@ from django.utils import timezone
 MIN_INT = 0
 MIN_FLOAT = 0.0
 MAX_RATE = 20
-MAX_QUANTITY = 0
+MIN_QUANTITY = 0
 MAX_QUANTITY = 100
 MAX_PRICE = 10000.0
 # Default value test
