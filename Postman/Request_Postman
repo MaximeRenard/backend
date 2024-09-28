@@ -1,5 +1,5 @@
 # Test Postman of api ecommerce
-## 26/09/24
+## 28/09/24
 postman --disable-gpu
 ### Version
 v11.7
@@ -19,7 +19,7 @@ http://127.0.0.1:8000/api/ecommerce/new/
 http://127.0.0.1:8000/api/ecommerce/1/
 
 # Update Product
-http://127.0.0.1:8000/api/ecommerce/patch/1/
+http://127.0.0.1:8000/api/ecommerce/patch/2-6/
 
 # Delete product
 http://127.0.0.1:8000/api/ecommerce/delete/1/
