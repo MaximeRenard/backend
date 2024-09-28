@@ -8,18 +8,64 @@ v11.7
 
 # Get 
 http://127.0.0.1:8000/api/ecommerce/
+[{"model": "ecommerce.product", "pk": 1, "fields": {"code": "dellghjs", "name": "DELL Battery", "description": "for
+vostro", "image": "dell.jpg", "category": "PC_Component", "price": 85.0, "quantity": 30, "internalReference":
+"REF-123-456", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 20, "createdat": 20240928, "updatedat":
+20240928}}, {"model": "ecommerce.product", "pk": 2, "fields": {"code": "f230fh0g3", "name": "Bamboo Watch",
+"description": "Product Description", "image": "bamboo-watch.jpg", "category": "Accessories", "price": 65.0, "quantity":
+50, "internalReference": "REF-567-456", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 5, "createdat": 20240926,
+"updatedat": 20240926}}, {"model": "ecommerce.product", "pk": 3, "fields": {"code": "nvklal433", "name": "Garmin Watch",
+"description": "Sport product", "image": "garmin_255.jpg", "category": "High-Tech", "price": 222.0, "quantity": 50,
+"internalReference": "REF-123-678", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 16, "createdat": 20240927,
+"updatedat": 20240927}}, {"model": "ecommerce.product", "pk": 4, "fields": {"code": "nvklal433", "name": "Garmin Watch",
+"description": "Sport prduct", "image": "garmin_255.jpg", "category": "Suits", "price": 222.0, "quantity": 50,
+"internalReference": "REF-123-678", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 16, "createdat": 20240927,
+"updatedat": 20240927}}, {"model": "ecommerce.product", "pk": 5, "fields": {"code": "nvklahkv", "name": "Docker
+Container", "description": "Program python", "image": "picture/icon-152x152.png", "category": "Program", "price": 322.0,
+"quantity": 1, "internalReference": "REF-456-678", "shellId": 15, "inventoryStatus": "LOWSTOCK", "rating": 16,
+"createdat": 20240928, "updatedat": 20240928}}, {"model": "ecommerce.product", "pk": 6, "fields": {"code": "mkgkdh",
+"name": "BIC", "description": "Pencil prduct", "image": "Pencil_BIC.jpg", "category": "Others", "price": 2.22,
+"quantity": 50, "internalReference": "REF-567-678", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 10,
+"createdat": 20240928, "updatedat": 20240928}}]
 
+# After update
+[{"model": "ecommerce.product", "pk": 1, "fields": {"code": "dellghjs", "name": "DELL Battery", "description": "for
+vostro", "image": "dell.jpg", "category": "PC_Component", "price": 85.0, "quantity": 30, "internalReference":
+"REF-123-456", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 20, "createdat": 20240928, "updatedat":
+20240928}}, {"model": "ecommerce.product", "pk": 2, "fields": {"code": "f230fh0g3", "name": "Bamboo Watch",
+"description": "Product Description", "image": "bamboo-watch.jpg", "category": "Accessories", "price": 65.0, "quantity":
+50, "internalReference": "REF-567-456", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 15, "createdat":
+20240926, "updatedat": 20240926}}, {"model": "ecommerce.product", "pk": 3, "fields": {"code": "nvklal433", "name":
+"Garmin Watch", "description": "Sport product", "image": "garmin_255.jpg", "category": "High-Tech", "price": 122.0,
+"quantity": 50, "internalReference": "REF-123-678", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 16,
+"createdat": 20240927, "updatedat": 20240928}}, {"model": "ecommerce.product", "pk": 4, "fields": {"code": "nvklal433",
+"name": "Jacket", "description": "To work", "image": "jacket_255.jpg", "category": "Suits", "price": 222.0, "quantity":
+50, "internalReference": "REF-123-678", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 16, "createdat":
+20240927, "updatedat": 20240927}}, {"model": "ecommerce.product", "pk": 5, "fields": {"code": "nvklahkv", "name":
+"Docker Container", "description": "Program python", "image": "picture/icon-152x152.png", "category": "Program",
+"price": 322.0, "quantity": 1, "internalReference": "REF-456-678", "shellId": 15, "inventoryStatus": "LOWSTOCK",
+"rating": 16, "createdat": 20240928, "updatedat": 20241001}}, {"model": "ecommerce.product", "pk": 6, "fields": {"code":
+"mkgkdh", "name": "BIC", "description": "Pencil prduct", "image": "Pencil_BIC.jpg", "category": "Others", "price": 1.22,
+"quantity": 0, "internalReference": "REF-567-678", "shellId": 15, "inventoryStatus": "OUTOFSTOCK", "rating": 10,
+"createdat": 20240928, "updatedat": 20240928}}]
 # Post
 http://127.0.0.1:8000/api/ecommerce/new/
+see web/ecommerce/assets/Addproductecommerce.json
 
 # **************************
 #ressource Product/id
 
 # Get a specific product
 http://127.0.0.1:8000/api/ecommerce/1/
+[{"model": "ecommerce.product", "pk": 1, "fields": {"code": "dellghjs", "name": "DELL Battery", "description": "for
+vostro", "image": "dell.jpg", "category": "PC_Component", "price": 85.0, "quantity": 30, "internalReference":
+"REF-123-456", "shellId": 15, "inventoryStatus": "INSTOCK", "rating": 20, "createdat": 20240928, "updatedat":
+20240928}}]
+# After delete product
+[]
 
 # Update Product
 http://127.0.0.1:8000/api/ecommerce/patch/2-6/
-
+see web/ecommerce/assets/Updateproductecommerce.json
 # Delete product
 http://127.0.0.1:8000/api/ecommerce/delete/1/
