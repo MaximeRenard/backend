@@ -1,2 +1,4 @@
  # exclude file
  web/*sqlite3
+ web/web/__pycache__/*pyc
+ pictures/icon-152x152.png
