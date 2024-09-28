@@ -1,5 +1,5 @@
 # Project for ALTEN test
-## Projet Back End with Pythhon with Django framework
+## Projet Back End with Python with Django framework
 ## Author : Maxime Renard
 
 
