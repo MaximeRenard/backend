@@ -24,11 +24,10 @@ SECRET_KEY = 'django-insecure-+86-#%x%+z)x$)a-!i^pcwc%0emr!vm-g%0vprnxh9pd)9z&uf
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["localhost","0.0.0.0","127.0.0.1","172.21.0.2"]
+ALLOWED_HOSTS = ["localhost","127.0.0.1"]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +38,7 @@ INSTALLED_APPS = [
     'ecommerce.apps.EcommerceConfig',
     
 ]
-
+# No get and recover Crsf
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -71,15 +70,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'web.wsgi.application'
 
 
-# Database
+#  Connect to Database PSQL with psycopg2
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
 
-    'sqlite3': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'base_commerce',
@@ -87,7 +82,7 @@ DATABASES = {
         'PASSWORD': 'Project',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-    },
+    }
 }
 
 

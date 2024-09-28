@@ -23,12 +23,12 @@ class Product(models.Model):
 		description: string;
 		image: string;
 		category: string;
-		price: number; de 1.0 à 100000 
-		quantity: number; de 0 à 100
+		price: float; de 0.0 à 10000.0 €  
+		quantity: integer; de 0 à 100
 		internalReference: string;
 		shellId: number;
 		inventoryStatus: "INSTOCK" | "LOWSTOCK" | "OUTOFSTOCK";
-		rating: note de 1 à 20;
+		rating: integer 0 à 20;
 		createdAt: Number;
 		updatedAt: number;
 	"""
@@ -43,7 +43,7 @@ class Product(models.Model):
 		HIGH_TECH = 'High-Tech'
 		SUITS = 'Suits'
 		PROGRAM = 'Program'
-		PC_COMPONENT = 'Portable'
+		PC_COMPONENT = 'PC_Component'
 		ACCESSORY = 'Accessories'
 		OTHERS = 'Others'   
 	category = models.fields.CharField(choices=Category.choices, max_length=13,default='Others')

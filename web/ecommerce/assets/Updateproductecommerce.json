@@ -1,34 +1,105 @@
 [
+	/*No Modify*/
+	{
+		"id": 1,
+		"code": "dellghjs",
+		"name": "DELL Battery",
+		"description": "for vostro",
+		"image": "dell.jpg",
+        "quantity":30,
+		"price": 85,
+		"category": "PC_Component",
+		"shellId": 15,
+		"internalReference": "REF-123-456",
+		"inventoryStatus": "INSTOCK",
+		"rating": 20,
+		"createdat" : 20240928,
+		"updatedat" : 20240928
+	},
+	/*Modify : rate*/
 	{
 		"id": 2,
 		"code": "f230fh0g3",
 		"name": "Bamboo Watch",
 		"description": "Product Description",
 		"image": "bamboo-watch.jpg",
-        	"quantity":5,
-		"price": 45,
+        "quantity":50,
+		"price": 65,
 		"category": "Accessories",
 		"shellId": 15,
 		"internalReference": "REF-567-456",
-		"inventoryStatus": "LOWSTOCK",
-		"rating": 5,
+		"inventoryStatus": "INSTOCK",
+		"rating": 15,
 		"createdat" : 20240926,
 		"updatedat" : 20240926
 	},
+	/*Modify : SOLD*/
 	{
-		"id": 1001,
+		"id": 3,
 		"code": "nvklal433",
-		"name": "Black Watch",
-		"description": "Product Description",
-		"image": "black-watch.jpg",
-		"price": 72,
-		"quantity":0,
-		"category": "Accessories",
-		"createdAt": 1718114215761,
-		"updatedAt": 1718114215761,
+		"name": "Garmin Watch",
+		"description": "Sport product",
+		"image": "garmin_255.jpg",
+		"price": 122,
+		"category": "High-Tech",
+		"createdat": 20240927,
+		"updatedat": 20240928,
 		"shellId": 15,
 		"internalReference": "REF-123-678",
+		"inventoryStatus": "INSTOCK",
+		"rating": 16,
+		"quantity":50
+	},
+	/*Modify name and description*/
+	{
+		"id": 4,
+		"code": "nvklal433",
+		"name": "Jacket",
+		"description": "To work",
+		"image": "jacket_255.jpg",
+		"price": 222,
+		"category": "Suits",
+		"createdat": 20240927,
+		"updatedat": 20240927,
+		"shellId": 15,
+		"internalReference": "REF-123-678",
+		"inventoryStatus": "INSTOCK",
+		"rating": 16,
+		"quantity":50
+	},
+	/*Modify update*/
+	{
+		"id": 5,
+		"code": "nvklahkv",
+		"name": "Docker Container",
+		"description": "Program python",
+		"image": "picture/icon-152x152.png",
+		"price": 322,
+		"category": "Program",
+		"createdat": 20240928,
+		"updatedat": 20241001,
+		"shellId": 15,
+		"internalReference": "REF-456-678",
+		"inventoryStatus": "LOWSTOCK",
+		"rating": 16,
+		"quantity":1
+	},
+	/*Modify : OUTOFSTOCK*/
+	{
+		"id": 6,
+		"code": "mkgkdh",
+		"name": "BIC",
+		"description": "Pencil prduct",
+		"image": "Pencil_BIC.jpg",
+		"price": 1.22,
+		"category": "Others",
+		"createdat": 20240928,
+		"updatedat": 20240928,
+		"shellId": 15,
+		"internalReference": "REF-567-678",
 		"inventoryStatus": "OUTOFSTOCK",
-		"rating": 4
+		"rating": 10,
+		"quantity":0
 	}
+
 ]

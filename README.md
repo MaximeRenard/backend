@@ -3,14 +3,15 @@
 ## Author : Maxime Renard
 
 
-### Utilisation de docker
-version
+### Containerisation with docker
+Docker version 27.3.1, build ce12230
+Ubuntu 22.04
 ### Langage Python 
 Use version 3.12.3
 ### Use of Framework django
 version 5.1.1
 ### base de données 
-PSQL: postgresql
+PSQL: postgresql:16
 
 ### Launch code 
 #### 14/09/2024 : Creation of docker
@@ -25,19 +26,20 @@ Type "help" for help.
 #### Commande creation django project
 ##### Create project
 django-admin startproject web
-Dans docker-compose commande
+##### Create application
+python3 manage.py startapp ecommerce
 python3 manage.py migrate
 python3 manage.py runserver 127.0.0.1:8000
 Base de données sqllite3 
-##### Crete application
-python3 manage.py startapp ecommerce
+
 #### Inserer modele db
 ##### ecommerce/models.py
 python3 manage.py makemigrations
 python3 manage.py migrate
 python manage.py showmigrations
-### Launch program
+### Load program
 git clone https://github.com/MaximeRenard/backend
+or 
 git clone git@github.com:MaximeRenard/backend.git
 ### Version docker
 Docker version 27.2.1, build 9e34c9b
