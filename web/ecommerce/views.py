@@ -7,24 +7,16 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 # ***************************************
-# Accueil
+# Welcome
 
-# Page Accueil 
+# Welcome Test Front end  
 def home_page(request):
 	"""
 	 METHOD GET PAGE
+	 return page with basic html "Hello"
 	"""
 	return render(request,'ecommerce/home.html')
 
-
-# Page Frontend to test with Postman 
-def contact_page(request):
-	"""
-	Create page contact avec formulaire
-	Return validation envoi
-	"""
-	# Ajouter formulaire 
-	return render(request,'ecommerce/contact.html')
 
 # ***********************************
 # Ressource **/products** 
@@ -34,8 +26,8 @@ def contact_page(request):
 def create_a_new_product(request):
 	"""
 
-		IN : Body json
-		OUT: Save product in database
+		IN : Body json in Postman
+		return Save product in store
 
 	"""
 	if request.method == 'POST':
@@ -54,11 +46,13 @@ def create_a_new_product(request):
 		new_price = body.get("price")
 		new_createdat = body.get("createdat")
 		new_updateat = body.get("updatedat")
+
 		new_product = Product(id=new_id,code = new_code,name = new_name, description = new_description,
 				image =new_image, category = new_category,quantity = new_quantity,internalReference = new_internalReference,
 				shellId = newshellId,inventoryStatus = new_inventoryStatus,
 				rating = new_rating,price = new_price,createdat = new_createdat,
 				updatedat = new_updateat)
+		# Save product in database 
 		new_product.save()
 		
 		return HttpResponse(status=200)
@@ -71,7 +65,7 @@ def get_all_product(request):
 	"""
 
 		IN : Request in postman
-		OUT: Display product of ecommerce
+		return  Display all product of ecommerce
 		
 	"""
 	if request.method == 'GET':
@@ -88,11 +82,11 @@ def get_all_product(request):
 
 # ***************
 # Retrieve one products id
-#def get_product_id(request):
+
 def get_product_by_id(request, product_id):
 	"""
 
-		IN : Request in postman and Recover id of product
+		IN : Request in postman and id <integer> of a product in store
 		OUT: Display product/id of ecommerce
 		
 	"""
@@ -111,12 +105,13 @@ def get_product_by_id(request, product_id):
 def update_product_by_id(request, product_id):
 	"""
 
-		IN : Body json with chage of product
+		IN : Body json with new characteristic of specific product
 		OUT: Update product on database
 		
 	"""
 	if request.method == 'PATCH':
 		body = json.loads(request.body.decode('utf-8'))
+		# Validate id product
 		new_id = body.get("id")
 		new_code = body.get("code")
 		new_name = body.get("name")
@@ -129,9 +124,10 @@ def update_product_by_id(request, product_id):
 		new_inventoryStatus = body.get("inventoryStatus")
 		new_rating = body.get("rating")
 		new_price = body.get("price")
-		# Update no change createat
-		# new_createdat = body.get("createdat")
+		
 		new_updateat = body.get("updatedat")    
+		
+		# Function to find product in store else return error 
 		try:
 			product = Product.objects.get(pk=product_id)
 		except Product.DoesNotExist:
@@ -149,7 +145,7 @@ def update_product_by_id(request, product_id):
 		product.inventoryStatus = new_inventoryStatus
 		product.rating  = new_rating
 		product.price = new_price
-		# No change of createat
+		# No change of createat 
 		product.updatedat = new_updateat
 		product.save()             
 		return HttpResponse(status=200)    
@@ -161,11 +157,12 @@ def update_product_by_id(request, product_id):
 def delete_product_by_id(request, product_id):
 	"""
 
-		IN : Request in postman and Recover id of product
+		IN : Request in postman and Recover product_id in request 
 		OUT: Delete product/id of ecommerce
 		
 	"""
 	if request.method == 'DELETE':
+		# Fin product ID to 
 		try:
 			product = Product.objects.get(pk=product_id)
 		except Product.DoesNotExist:

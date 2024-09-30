@@ -3,6 +3,7 @@ from . import views
 
 # ***************
 # Url pattern for application ecommerce
+# <int:product_id> : Recover id (primary key) of a specific products
 urlpatterns = [
     path('ecommerce/new/', views.create_a_new_product, name='create a new product in store'),    
     path('ecommerce/', views.get_all_product, name='get all product of store'),    

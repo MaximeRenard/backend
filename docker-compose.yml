@@ -11,13 +11,14 @@ services:
             - POSTGRES_DB=base_commerce
             - POSTGRES_USER=user_commerce
             - POSTGRES_PASSWORD=Project
-            
+        #ports: 
+        #    - 5432:5433 
 
         healthcheck:
             test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
             interval: 1s
             timeout: 5s
-            retries: 10
+            retries: 1
         volumes:
             - ./:/home/docker
 
@@ -25,7 +26,8 @@ services:
     web_app:
         tty: true
         container_name: web_app
-        image: maximerenard/django:5.1
+    
+        build : .
         ports: 
             - "8000:8000"
         depends_on:

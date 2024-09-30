@@ -23,5 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('ecommerce.urls'),name="Application ecommerce"),
     path('home/', views.home_page,name="home_page"),
-    path('contact/', views.contact_page,name="contact"),
 ]

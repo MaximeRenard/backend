@@ -30,13 +30,32 @@ django-admin startproject web
 python3 manage.py startapp ecommerce
 python3 manage.py migrate
 python3 manage.py runserver 127.0.0.1:8000
-Base de données sqllite3 
+Base de données sqlite3 
 
-#### Inserer modele db
+####  Model db and function
 ##### ecommerce/models.py
+Class of product
+##### Migrations Result of Migrate
 python3 manage.py makemigrations
 python3 manage.py migrate
 python manage.py showmigrations
+##### Pictures 
+Instance of default pictures
+##### Template
+html code for whelcome page
+##### Assets
+Example of product : Create and models of update product
+
+##### ecommerce/views.py
+Function for manage store
+GET product
+POST product
+DELETE product
+PATCH specific product
+#### Postman 
+Result of Postman test of api ecommerce
+
+
 ### Load program
 git clone https://github.com/MaximeRenard/backend
 or 

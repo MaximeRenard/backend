@@ -70,12 +70,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'web.wsgi.application'
 
 
-#  Connect to Database PSQL with psycopg2
+#  Connect to Database PSQL with psycopg2 with database set
+# Database in /var/lib/postgresql/data for postgres
+# Give acces to the database base commerce in your postgres PC configuration
+#  Default use sqlite3
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'psql': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'base_commerce',
         'USER': 'user_commerce',
