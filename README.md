@@ -79,11 +79,18 @@ sudo docker images \
 Launch postman for test\
 postman --disable-gpu v11.7 on ubuntu 24.04.1 LTS
 #### Exec specific container
-sudo docker exec -it web_app bash<\br> 
-#root@a604c36ce2b7:/home/docker# ls<\br\> 
-#Dockerfile  README.md  docker-compose.yml  requirements.txt  web <\br>  
-Container Psql: <\br> 
-sudo docker exec -it [726bbd49d667]_web_db bash<br\>   
-root@postgres:/# psql -U postgres<br\> 
-psql (16.4 (Debian 16.4-1.pgdg120+1))<br\> 
+sudo docker exec -it web_app bash
+
+#root@a604c36ce2b7:/home/docker# ls
+
+#Dockerfile  README.md  docker-compose.yml  requirements.txt  web 
+
+Container Psql: 
+
+sudo docker exec -it [726bbd49d667]_web_db bash
+
+root@postgres:/# psql -U postgres
+
+psql (16.4 (Debian 16.4-1.pgdg120+1))
+
 Recall : use sqlite in default
