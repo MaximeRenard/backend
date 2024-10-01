@@ -18,7 +18,8 @@
 							"    pm.response.to.have.status(200);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -26,18 +27,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/info?id=1",
+					"raw": "http://127.0.0.1:8000/api/ecommerce/",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"api",
+						"ecommerce",
+						""
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -55,7 +57,8 @@
 							"    pm.response.to.have.status(200);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -63,18 +66,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/info?id=1",
+					"raw": "http://127.0.0.1:8000/api/ecommerce/1/",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"api",
+						"ecommerce",
+						"1",
+						""
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -93,7 +98,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -102,7 +108,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"raw": "{\n\t\t\"id\": 4,\n\t\t\"code\": \"nvklal433\",\n\t\t\"name\": \"Garmin Watch\",\n\t\t\"description\": \"Sport prduct\",\n\t\t\"image\": \"garmin_255.jpg\",\n\t\t\"price\": 222,\n\t\t\"category\": \"Suits\",\n\t\t\"createdat\": 20240927,\n\t\t\"updatedat\": 20240927,\n\t\t\"shellId\": 15,\n\t\t\"internalReference\": \"REF-123-678\",\n\t\t\"inventoryStatus\": \"INSTOCK\",\n\t\t\"rating\": 16,\n\t\t\"quantity\":50\n\t}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -110,12 +116,20 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/info",
+					"raw": "http://127.0.0.1:8000/api/ecommerce/new/",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
-						"info"
+						"api",
+						"ecommerce",
+						"new",
+						""
 					]
 				},
 				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
@@ -134,7 +148,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -143,7 +158,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"raw": "{\n\t\t\"id\": 3,\n\t\t\"code\": \"nvklal433\",\n\t\t\"name\": \"Garmin Watch\",\n\t\t\"description\": \"Sport product\",\n\t\t\"image\": \"garmin_255.jpg\",\n\t\t\"price\": 222,\n\t\t\"category\": \"High-Tech\",\n\t\t\"createdat\": 20240927,\n\t\t\"updatedat\": 20240927,\n\t\t\"shellId\": 15,\n\t\t\"internalReference\": \"REF-123-678\",\n\t\t\"inventoryStatus\": \"INSTOCK\",\n\t\t\"rating\": 16,\n\t\t\"quantity\":50\n\t}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -151,12 +166,20 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/info",
+					"raw": "http://127.0.0.1:8000/api/ecommerce/new/",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
-						"info"
+						"api",
+						"ecommerce",
+						"new",
+						""
 					]
 				},
 				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
@@ -164,7 +187,7 @@
 			"response": []
 		},
 		{
-			"name": "Post data 3 -delete",
+			"name": "Post data 3",
 			"event": [
 				{
 					"listen": "test",
@@ -175,7 +198,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -184,7 +208,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"raw": "{\n\t\t\"id\": 5,\n\t\t\"code\": \"nvklahkv\",\n\t\t\"name\": \"Docker Container\",\n\t\t\"description\": \"Program python\",\n\t\t\"image\": \"picture/icon-152x152.png\",\n\t\t\"price\": 322,\n\t\t\"category\": \"Program\",\n\t\t\"createdat\": 20240928,\n\t\t\"updatedat\": 20240928,\n\t\t\"shellId\": 15,\n\t\t\"internalReference\": \"REF-456-678\",\n\t\t\"inventoryStatus\": \"LOWSTOCK\",\n\t\t\"rating\": 16,\n\t\t\"quantity\":1\n\t}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,12 +216,70 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/info",
+					"raw": "http://127.0.0.1:8000/api/ecommerce/new/",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
-						"info"
+						"api",
+						"ecommerce",
+						"new",
+						""
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Post data 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"id\": 6,\n\t\t\"code\": \"mkgkdh\",\n\t\t\"name\": \"BIC\",\n\t\t\"description\": \"Pencil prduct\",\n\t\t\"image\": \"Pencil_BIC.jpg\",\n\t\t\"price\": 2.22,\n\t\t\"category\": \"Others\",\n\t\t\"createdat\": 20240928,\n\t\t\"updatedat\": 20240928,\n\t\t\"shellId\": 15,\n\t\t\"internalReference\": \"REF-567-678\",\n\t\t\"inventoryStatus\": \"INSTOCK\",\n\t\t\"rating\": 10,\n\t\t\"quantity\":50\n\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/ecommerce/new/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ecommerce",
+						"new",
+						""
 					]
 				},
 				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
@@ -216,16 +298,17 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
-				"method": "PUT",
+				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"raw": "{\n\t\t\"id\": 6,\n\t\t\"code\": \"mkgkdh\",\n\t\t\"name\": \"BIC\",\n\t\t\"description\": \"Pencil prduct\",\n\t\t\"image\": \"Pencil_BIC.jpg\",\n\t\t\"price\": 1.22,\n\t\t\"category\": \"Others\",\n\t\t\"createdat\": 20240928,\n\t\t\"updatedat\": 20240928,\n\t\t\"shellId\": 15,\n\t\t\"internalReference\": \"REF-567-678\",\n\t\t\"inventoryStatus\": \"OUTOFSTOCK\",\n\t\t\"rating\": 10,\n\t\t\"quantity\":0\n\t}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -233,18 +316,21 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/info?id=1",
+					"raw": "http://127.0.0.1:8000/api/ecommerce/patch/6/",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"api",
+						"ecommerce",
+						"patch",
+						"6",
+						""
 					]
 				},
 				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
@@ -263,7 +349,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -280,18 +367,21 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/info?id=1",
+					"raw": "http://127.0.0.1:8000/api/ecommerce/delete/1/",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"api",
+						"ecommerce",
+						"delete",
+						"1",
+						""
 					]
 				},
 				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."

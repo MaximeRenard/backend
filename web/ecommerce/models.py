@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _  # use if you support 

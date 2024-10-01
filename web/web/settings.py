@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Django settings for web project.
 
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'ecommerce.apps.EcommerceConfig',
     
 ]
-# No get and recover Crsf
+# No get and recover Crsf in api ecommerce
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
